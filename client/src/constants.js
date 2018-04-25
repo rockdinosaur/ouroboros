@@ -3,12 +3,12 @@ export const LOOP_INTERVAL = 250;
 export const INITIAL_TU = 0;
 export const MAX_PEERS = 15;
 
+// number of snake TUs to send to peers
+export const P2P_TUS = 10;
+
 // number of TUs retained for snakes and boards
 // beyond what is currently displayed (according to snake length)
-export const HISTORY_LENGTH = 10;
-
-// number of snake TUs to send to peers
-export const P2P_TUS = 5;
+export const HISTORY_LENGTH = P2P_TUS;
 
 // how far back in TUs to look for collisions
 export const NUMBER_CANDIDATE_TUS = 3;
@@ -17,13 +17,13 @@ export const NUMBER_CANDIDATE_TUS = 3;
 export const LATENCY = 0;
 export const DISCONNECTION = 0;
 
-export const GAME_OVER_DELAY = 10;
+export const GAME_OVER_DELAY = P2P_TUS;
 
 export const INITIAL_SNAKE_LENGTH = 4;
 
 // a player that is further behind in TUs than this number will be given
 // GAME_STATUS_OUT_OF_SYNC and their snake will die automatically
-export const LATENT_SNAKE_TOLERANCE = GAME_OVER_DELAY;
+export const LATENT_SNAKE_TOLERANCE = P2P_TUS * 2;
 
 export const GAME_STATUS_LOBBY = 'lobby'; // peer connections
 export const GAME_STATUS_PREGAME = 'pregame'; // no new peers, share initial positions
